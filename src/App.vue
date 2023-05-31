@@ -1,14 +1,15 @@
 <template>
   <div>
     <h1>Vue3</h1>
-    <h2>当前计数{{ count }}</h2>
+    <!-- store中的counter -->
+    <h2>当前计数{{ $store.state.count }}</h2>
   </div>
 </template>
 
 <script setup>
-  import { ref } from "vue";
+  // import { ref } from "vue";
 
-  const count = ref(100)
+  // const count = ref(100)
 </script>
 
 <style>
