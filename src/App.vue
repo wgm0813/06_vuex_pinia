@@ -1,17 +1,14 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <h1>Vue3</h1>
+    <h2>当前计数{{ count }}</h2>
+  </div>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+<script setup>
+  import { ref } from "vue";
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  const count = ref(100)
 </script>
 
 <style>
