@@ -5,6 +5,7 @@
 
     <!-- 2、使用compositions api/vue3语法 -->
     <h1>compositions api显示getters:{{ store.getters.doubleCount }}</h1>
+    <h1>compositions api显示年龄总和:{{ store.getters.totalAge }}</h1>
   </div>
 </template>
 
