@@ -25,10 +25,13 @@
     <h2>compositions api：cName: {{ cName }}</h2>
     <h2>compositions api：cLevel: {{ cLevel }}</h2> -->
 
-    <!-- compositions api -->
     <!-- 3、compositions api独立代码逻辑到hooks文件里 -->
-    <h2>hooks中name:{{ state.name.value }}</h2>
-    <h2>hooks中level:{{ state.level }}</h2>
+    <!-- <h2>hooks中name:{{ state.name.value }}</h2>
+    <h2>hooks中level:{{ state.level }}</h2> -->
+
+    <!-- 3、compositions api直接使用store -->
+    <h2>store直接使用name:{{ name }}</h2>
+    <h2>store直接使用level:{{ level }}</h2>
   </div>
 </template>
 
@@ -49,14 +52,24 @@ export default {
 </script> -->
 
 <script setup>
+// 1、一步步完成
 // import {computed} from 'vue';
 // import {mapState, useStore} from 'vuex';
 // const {name,level} = mapState(['name', 'level'])
 // const cName = computed(name.bind({$store: useStore()}));
 // const cLevel = computed(level.bind({$store: useStore()}));
 
-import useState from '../hooks/useState.js'
-const state= useState(['name', 'level']);
+// 2、使用useState
+// import useState from '../hooks/useState.js'
+// const state= useState(['name', 'level']);
+
+// 3、直接使用
+import { toRefs } from 'vue';
+import { useStore } from 'vuex';
+// 这样直接使用，缺点：不是响应式
+// const {name,level} = useStore();
+// 但是可以通过toRefs来变成响应式
+const { name , level }= toRefs(useStore().state);
 
 </script>
 
