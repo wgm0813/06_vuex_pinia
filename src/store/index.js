@@ -12,8 +12,9 @@ const store = createStore({
     ]
   }),
   getters: {
-    doubleCount(state){
-      return state.count*2
+    // 第一个参数是state,第二个参数相当于自己如果想要用回调
+    doubleCount(state, getters){
+      return state.count*2 + '所有年龄'+ getters.totalAge;
     },
     totalAge(state) {
       return state.users.reduce((pre,item) => {
