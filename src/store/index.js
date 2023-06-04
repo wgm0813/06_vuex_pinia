@@ -35,6 +35,9 @@ const store = createStore({
   mutations: {
     increment(state) {
       state.count++;
+    },
+    changeName(state,payload) {
+      state.name = payload;
     }
   }
 });
