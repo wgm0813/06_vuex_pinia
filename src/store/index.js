@@ -36,6 +36,9 @@ const store = createStore({
     increment(state) {
       state.count++;
     },
+    changeName1(state){
+      state.name ="杨幂";
+    },
     changeName(state,payload) {
       state.name = payload;
     }

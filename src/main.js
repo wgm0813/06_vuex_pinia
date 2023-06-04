@@ -4,5 +4,6 @@ import store from './store'
 // import App from '@/views/01_store基本使用及mapState映射.vue'
 // import App from '@/views/02_store核心getters的使用.vue'
 // import App from '@/views/03_getters的映射.vue'
-import App from '@/views/04_mutation的基本使用.vue'
+// import App from '@/views/04_mutation的基本使用.vue'
+import App from '@/views/05_mapMutations映射.vue'
 createApp(App).use(store).mount('#app')
