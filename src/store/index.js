@@ -42,6 +42,11 @@ const store = createStore({
     changeName(state,payload) {
       state.name = payload;
     }
+  },
+  actions:{
+    increment(context) {
+      context.commit('increment');
+    }
   }
 });
 
