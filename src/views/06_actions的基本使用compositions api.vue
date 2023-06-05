@@ -4,6 +4,7 @@
     <h2>当前计数：{{ store.state.count }}</h2>
     <!-- <button @click="actionClick">发起actions</button> -->
     <button @click="increment">发起actions</button>
+    <button @click="incrementActions">发起actions</button>
   </div>
 </template>
 
@@ -22,6 +23,12 @@
     newActions[key] = actions[key].bind({$store:store})
   })
   const {increment} = newActions;
+
+
+  // 使用默认的做法
+  function incrementActions(){
+    store.dispatch('increment')
+  }
 </script>
 
 <style>
