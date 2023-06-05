@@ -7,5 +7,6 @@ import store from './store'
 // import App from '@/views/04_mutation的基本使用.vue'
 // import App from '@/views/05_mapMutations映射.vue'
 // import App from '@/views/06_actions的基本使用options api.vue'
-import App from '@/views/06_actions的基本使用compositions api.vue'
+// import App from '@/views/06_actions的基本使用compositions api.vue'
+import App from '@/views/homePage.vue'
 createApp(App).use(store).mount('#app')
