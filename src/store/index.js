@@ -14,7 +14,7 @@ const store = createStore({
 
     //服务器数据
     banner: [],
-    recommend: [],
+    recommend: []
   }),
   getters: {
     // 第一个参数是state,第二个参数相当于自己如果想要用回调
@@ -41,24 +41,24 @@ const store = createStore({
     increment(state) {
       state.count++;
     },
-    changeName1(state){
-      state.name ="杨幂";
+    changeName1(state) {
+      state.name = "杨幂";
     },
-    changeName(state,payload) {
+    changeName(state, payload) {
       state.name = payload;
     },
-    setBanner(state,banner){
+    setBanner(state, banner) {
       state.banner = banner;
     },
-    setCommend(state,recommend){
-      state.recommend = recommend
+    setCommend(state, recommend) {
+      state.recommend = recommend;
     }
   },
-  actions:{
+  actions: {
     increment(context) {
-      context.commit('increment');
+      context.commit("increment");
     },
-    async fetchHomeMultidataAction(context){
+    async fetchHomeMultidataAction(context) {
       //1、返回Promise,给Promise设置then
       // fetch("http://123.207.32.32:8000/home/multidata").then((res) => {
       //   res.json().then((data) => {
@@ -74,12 +74,25 @@ const store = createStore({
       // })
 
       // 3、await/async
-      const res = await fetch("http://123.207.32.32:8000/home/multidata")
-      const data = await res.json()
+      const res = await fetch("http://123.207.32.32:8000/home/multidata");
+      const data = await res.json();
       console.log(data);
       // 想要修改state里面的数据，只能通过
-      context.commit("setBanner",data.data.banner.list);
-      context.commit("setCommend",data.data.recommend.list);
+      context.commit("setBanner", data.data.banner.list);
+      context.commit("setCommend", data.data.recommend.list);
+    },
+
+    fetchHomeMultidataActionPromise(context){
+      // eslint-disable-next-line no-async-promise-executor
+      return new Promise(async (resolve) => {
+        const res = await fetch("http://123.207.32.32:8000/home/multidata");
+        const data = await res.json();
+
+        context.commit("setBanner", data.data.banner.list);
+        context.commit("setCommend", data.data.recommend.list);
+
+        resolve("dddd");
+      });
     }
   }
 });
