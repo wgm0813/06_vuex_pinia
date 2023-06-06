@@ -1,4 +1,6 @@
 export default {
+  // 命名空间，有了之后就会不受全局注册的影响，只会在自己模块里面有用。注意拿的时候语法$store.getters['count/doubleCount']类似这样的写法
+  namespaced: true,
   state: () => ({
     //服务器数据
     banner: [],
