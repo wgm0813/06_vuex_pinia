@@ -2,7 +2,8 @@
   <div>
     <h1>HomePage</h1>
     <ul>
-      <template v-for="item in $store.state.banner" :key="item.acm">
+      <!-- 获取数据：需要从模块中获取 -->
+      <template v-for="item in $store.state.home.banner" :key="item.acm">
         <li>{{ item.title }}</li>
       </template>
     </ul>
